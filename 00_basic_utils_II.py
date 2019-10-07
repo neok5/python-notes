@@ -1,3 +1,5 @@
+import math as ma
+
 # function print() with param keywords
 #	'sep' - printed elements separator; default value: ' '
 # 	'end' - indicates the 'str' printed at last; default value: '\n'
@@ -37,7 +39,8 @@ except FileNotFoundError as e:
 # useful as placeholder when a statement is required syntactically
 class ClassNotImplementedYet:
 	pass
-	def function_not_implemented_yet():
+
+	def function_not_implemented_yet(self):
 		pass
 print()
 
@@ -63,7 +66,7 @@ print()
 #
 #	* single underscore ['_']
 #		- sometimes used as name to indicate that a variable is temporary or insignificant
-#		- useful in tuple unpackage (destructuring) to ignore certain fields
+#		- useful in tuple unpacking (destructuring) to ignore certain fields
 #
 print("----------------------- underscores -----------------------\n")
 
@@ -83,15 +86,13 @@ print(test.foo)
 print(test._bar)
 print(test.def_)
 # print(test.__dun) # this line raises a AttributeError ('Test' has no attribute '__dun')
-print(test._Test__dun)
+# print(test._Test__dun)
 test.count_to_five()
 print()
 
 # shorter FOR; syntax: we can apply 'map' and 'filter' to a list with a shorten FOR
 # 	'[function(ele) for ele in elements if condition(ele)]'
 # 	'[map_function shorten_FOR if filter_function]'
-import math as ma
-
 print("--------------- shorter FOR [map(), filter() combination] ---------------\n")
 numbers = [0, 1, 2, 4, 9, 16, 25, 36, 50] # 9 numbers, 7 integer sqrts (not '2' and '50')
 square_roots = [ ma.sqrt(n) for n in numbers if ma.modf(ma.sqrt(n))[0] == 0]

@@ -6,9 +6,9 @@ class Number:
 		'''number's constructor, receives an id'''
 		self.id = id
 
-	def check_id():
+	def check_id(self):
 		'''returns true if the id is into a valid range'''
-		return 0 < id < 100
+		return 0 < self.id < 100
 
 def sum(num_1, num_2):
 	'''returns the result of adding both numbers'''

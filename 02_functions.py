@@ -1,11 +1,11 @@
-def message(): # function declaration
-	print("First line") # start function body
+def message():  # function declaration
+	print("First line")  # start function body
 	print("Second line")
-	print("Third line") # end function body
+	print("Third line")  # end function body
 
-message() # function call
+message()  # function call
 
-def sum(num1, num2): # another function
+def _sum(num1, num2):  # another function
 	return num1 + num2
 
-print(sum(5, 18)) # output = 23
+print(_sum(5, 18))  # output = 23

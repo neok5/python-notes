@@ -25,7 +25,6 @@
 #		· close() - close an opened file (has no effects if the file is already closed)
 #		· seek(pointer_index) - set file pointer to specified index (starting from 0)
 #
-import io
 filename = '14_text_file.txt'
 print("----------------------- External files handling ------------------------")
 
@@ -65,7 +64,7 @@ print("----------------------- Pointers over text files ------------------------
 file_middle = open(filename, 'r')
 file_size = int(len(file_middle.read()))
 
-file_middle.seek(file_size/2) # sets the pointer in the middle of the file
+file_middle.seek(file_size//2)  # sets the pointer in the middle of the file
 print(f"Reading from middle to end:{file_middle.read()}") # middle to end
 
 file_middle.seek(0) # restarts the pointer after second read; from start to middle

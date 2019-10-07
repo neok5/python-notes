@@ -6,11 +6,13 @@ print("--- Exam evaluation ---")
 # any value introduced is a 'str'; it may be needed to convert it
 user_mark = input("Insert your mark: ")
 
+
 def evaluation(mark):
-	resolution = "pass"
-	if mark < 5:
-		resolution = "fail"
-	return resolution
+    resolution = "pass"
+    if mark < 5:
+        resolution = "fail"
+    return resolution
+
 
 print(evaluation(int(user_mark)))
 print()
@@ -22,13 +24,16 @@ print("--- Age verification ---")
 
 user_age = int(input("Insert your age: "))
 
+
 def verification(age):
-	if age < 18:
-		print("Denied")
-	elif age > 100:
-		print("Incorrect")
-	else:
-		print("Allowed")
+    if age < 18:
+        print("Denied")
+    elif age > 100:
+        print("Incorrect")
+    else:
+        print("Allowed")
+
+
 verification(user_age)
 print()
 
@@ -40,10 +45,10 @@ age = int(input("Insert an age: "))
 
 # it evaluates the condition from left to rigth, pair by pair
 # same as: (age > 0) AND (age < 100) # params just for legibility
-if(0 < age < 100):
-	print("Valid age")
-else: # instructions outside a function; LOL
-	print("Incorrect age")
+if (0 < age < 100):
+    print("Valid age")
+else:  # instructions outside a function; LOL
+    print("Incorrect age")
 print()
 
 print("--- Employee salary evaluation ---")
@@ -57,9 +62,9 @@ junior_salary = int(input("Introduce junior`s salary: "))
 print("Junior`s salary -> " + str(junior_salary) + " $/year\n")
 
 if ceo_salary > director_salary > boss_area_salary > junior_salary:
-	print("Everything`s fine")
+    print("Everything`s fine")
 else:
-	print("Something`s wrong")
+    print("Something`s wrong")
 print()
 
 #
@@ -72,22 +77,19 @@ siblings = int(input("Insert the number of brothers or sisters: "))
 family_salary = int(input("Insert the anual salary of your family unit: "))
 
 if distance > 40 and siblings > 2 or family_salary <= 20000:
-	print("You have been granted your study grant")
+    print("You have been granted your study grant")
 else:
-	print("You can`t access to this subvention")
+    print("You can`t access to this subvention")
 print()
 
 #
 # sentence IF concatening general conditions (w/ and, or, not)
 #
-print("--- Optional subjects ---")
-print("Graphic computing \
-	| Software testing \
-	| Usability and accessibility")
+print('--- Optional subjects ---')
+print('Graphic computing | Software testing | Usability and accessibility')
 subject = input("Select a subject: ").lower()
 
-if subject in ("graphic computing", \
-	"software testing", "Usability and accessibility"):
-	print("Selected subject: " + subject[0].upper() + subject[1:])
+if subject in ("graphic computing", "software testing", "Usability and accessibility"):
+    print("Selected subject: " + subject[0].upper() + subject[1:])
 else:
-	print("Selected subject doesn`t exists")
+    print("Selected subject doesn`t exists")

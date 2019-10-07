@@ -29,8 +29,8 @@ for l in email:
 	if l == "@":
 		valid = True
 		break # go outside the loop, breaking the iteration
-else: # different of 'else' in IF sentence
-	  # executed when the loop is empty (at any iteration point)
+else:  # different of 'else' in IF sentence
+	#	executed when the loop is empty (at any iteration point)
 	valid = False
 print(f"Valid email? {valid}")
 print()
@@ -46,7 +46,7 @@ print(f"Result: {word_without_vowels}")
 print()
 
 print("----------------------- Pair numbers -----------------------")
-for n in range(0, 10, 2): # thrid param is the interval between values
+for n in range(0, 10, 2): # third param is the interval between values
 	print(f"Number {n}")
 print()
 
@@ -55,6 +55,7 @@ email_1 = "email@domain.com"
 email_2 = "aaggagdheje3jtm"
 found_1 = False
 found_2 = False
+output = 'There was a problem'
 
 for i in range(len(email_1)): # iterates from 0 to (email_length - 1)
 	if(email_1[i] == "@"): # letter by letter

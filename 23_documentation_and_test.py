@@ -69,7 +69,7 @@
         [function_comments]
 """
 
-import modules.math_functions as ma
+#import modules.math_functions as ma
 
 #help(ma); help(ma.Number); help(ma.Number.__init__); help(ma.multiply)
 

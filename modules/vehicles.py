@@ -18,7 +18,7 @@ class Vehicle:
 
 	def status(self):
 		print(f"""Brand: {self.brand}, Model: {self.model}\n[Moving: """
-		f"""{self.moving}]\n[Speeding up: {self.speeding_up}]\n[Breaking: {self.breaking}]""")
+			f"""{self.moving}]\n[Speeding up: {self.speeding_up}]\n[Breaking: {self.breaking}]""")
 
 class ElectricVehicle(Vehicle):
 
@@ -74,17 +74,21 @@ def vehicle_movement(vehicle):
 
 class Car:
 
-	def __init__(self, longitude, width, size_unit):
+	def __init__(self, id, longitude, width, size_unit):
+		self.id = id
 		self.longitude = longitude  # 'public'
 		self.width = width  # 'public'
 		self.__size_unit = size_unit  # 'private'
 		self.__status = "parked"  # 'private'
 
+	def __del__(self):
+		print(f'The object {self.id} was removed')
+
+	def __str__(self):
+		return f'{self.id} - Car size is {self.longitude}x{self.width} {self.__size_unit} and is {self.__status}'
+
 	def turn(self, status):  # 'public'
 		self.__status = "moving" if status and self.__internal_check(status) else "parked"
-
-	def show_status(self):  # 'public'
-		return f'Car size is {self.longitude}x{self.width} {self.__size_unit} and is {self.__status}'
 
 	def __internal_check(self, given_status):  # 'private'
 		print("Doing internal check... [status change]")

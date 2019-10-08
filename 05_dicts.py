@@ -56,5 +56,9 @@ print('-----------------------------------------------------------------')
 
 print(dict_with_complex_types.keys()) # show dictionary keys
 print(dict_with_complex_types.values()) # show dictionary values
+print(dict_with_complex_types.items()) # show dictionary entries
 print(len(dict_with_complex_types)) # show dictionary size
 print()
+
+for key, value in dict_with_complex_types.items():
+	print(f'{key} -> {value}')

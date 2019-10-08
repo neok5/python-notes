@@ -27,7 +27,11 @@
 #	- they are unordered, so they doesn't allow index access neither
 #	- they are mutable, you can add() or discard()[DOES NOT raise an Exception]/
 #		remove()[DOES raise an Exception if not found] elements
-#	- we can also use update(provided_set) to add elements in 'provided_set' to 'self.set'
+#	- we can also use s1.update(s2) to add elements in s2 to s1, or we can use s1.union(s2)
+#       to return a third set with elements in s1 and s2, without modifying them
+#   - all set logic is available using set functions: s1.isdisjoint(s2), s1.issubset(s2), s1.issuperset(s2),
+#       s1.difference(s2) [DON'T modify s1 NOR s2] / s1.difference_update(s2) [DO modify s1, but DON'T s2],
+#       s1.intersection(s2) and s1.symetric_differece(s2) [the opposite of intersection]...
 var = 1
 print(type(var))
 

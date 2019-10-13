@@ -2,7 +2,7 @@
 # DOCUMENTATION and TEST
 #
 #	- Documenting is the fact of include comments in the code: classes, methods, modules, etc.
-#	  It's useful for workteam, specially in big complex applications.
+#	  It's useful for teamwork, specially in big complex applications.
 #
 #   - We can also include test in function comments, using 'doctest' Python built-in module.
 #     We must import the module, and include the test inside the comment of the function,
@@ -20,7 +20,7 @@
 #         >>> for n in range(5):
 #         ...   list.append(element)
 #         >>> list_squares(list)
-#         [expected_result] # as a list of the squeares of list's elements
+#         [expected_result] # as a list of the squares of list's elements
 #
 #   - Instead of print() function, which sends a string provided as param to an output stream
 #     (generally the console), we can use help() function, that sends the documentation linked
@@ -29,6 +29,8 @@
 #
 #   - Below we have documentation examples of help(), which first line is:
 #       'Help on [element] [element_name] in [element_file_relative_route]:'
+
+import doctest
 
 """ module documentation:
 
@@ -69,14 +71,12 @@
         [function_comments]
 """
 
-#import modules.math_functions as ma
+# import modules.math_functions as ma
 
-#help(ma); help(ma.Number); help(ma.Number.__init__); help(ma.multiply)
-
-import doctest
+# help(ma); #help(ma.Number); help(ma.Number.__init__); help(ma.multiply)
 
 def number_square(num, text_mode):
-    '''returns the square of the provided 'num'
+    """returns the square of the provided 'num'
 
     >>> number_square(2, False)
     4
@@ -94,7 +94,7 @@ def number_square(num, text_mode):
     Traceback (most recent call last):
         ... # 3 dots act as wildcard, so between above and below lines there could be anything
     TypeError: can't multiply sequence by non-int of type 'str'
-    '''
+    """
     return num*num if not text_mode else f'The result is {num*num}'
 
 doctest.testmod()

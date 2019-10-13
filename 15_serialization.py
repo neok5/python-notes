@@ -45,7 +45,7 @@ print()
 
 
 from modules.vehicles import Vehicle
-filename_object = '15_carobjects_bfile'
+filename_object = '15_carobjects_bfile.pckl'  # we can open .pckl files with Sublime Text for a binary perspective
 
 print("----------------------- Vehicle object (dump) ------------------------")
 

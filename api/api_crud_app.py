@@ -2,7 +2,7 @@
 import sqlite3 as db
 import os # to delete the db each time
 
-db_name = '18_crud_app_users_db'
+db_name = '19_crud_app_users_db'
 if os.path.isfile(db_name):
 	os.remove(db_name) # this allows to start from scratch each time
 # global 'conn' and 'curs' access
@@ -24,8 +24,8 @@ def connect_db():
 		pass
 
 def create_user(user):
-#	curs.execute(f"""INSERT INTO USER_DATA VALUES
-#		(NULL, '{user[0]}', '{user[1]}', '{user[2]}', '{user[3]}', '{user[4]}')""")
+	#	curs.execute(f"""INSERT INTO USER_DATA VALUES
+	#		(NULL, '{user[0]}', '{user[1]}', '{user[2]}', '{user[3]}', '{user[4]}')""")
 
 	# alternatively, we can do a parameterized SQL query
 	curs.execute(f'INSERT INTO USER_DATA VALUES (NULL, ?, ?, ?, ?, ?)', user)

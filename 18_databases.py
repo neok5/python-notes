@@ -4,7 +4,7 @@
 #	- Python supports several DBMS, both SQL (Oracle, SQLite...) and noSQL (MongoDB, Redis...)
 #
 #	- SQLite: DBMS SQL, written in C, open source, integral part of the program it belongs:
-#		stored in a single file. Benefits: lightweight, efficient and fast, multiplattform,
+#		stored in a single file. Benefits: lightweight, efficient and fast, multi-platform,
 #		no requires management/configuration. Drawbacks: doesn't allow nested clauses (where),
 #		it has no users (single access at the same time).
 #
@@ -17,13 +17,13 @@
 #		· close connection
 #
 import sqlite3 as db
-import os # to delete the db each time
+import os  # to delete the db each time
 
-db_name = '17_products_sqlite_db'
+db_name = '18_products_sqlite_db'
 
-def show_list(cursor):
-	cursor.execute('SELECT * FROM PRODUCTS')
-	elements_list = cursor.fetchall()
+def show_list(_cursor):
+	_cursor.execute('SELECT * FROM PRODUCTS')
+	elements_list = _cursor.fetchall()
 	
 	print('\t\tAll products:')
 	for element in elements_list:
@@ -49,9 +49,9 @@ cursor = connection.cursor()
 cursor.execute("""CREATE TABLE PRODUCTS (KEY INTEGER PRIMARY KEY AUTOINCREMENT,
 	PRODUCT_CODE VARCHAR(4) UNIQUE, NAME VARCHAR(50), QUANTITY INTEGER, SECTION VARCHAR(20))""")
 
-print('\t\tExecuting SQL query...', end = '\n\n')
+print('\t\tExecuting SQL query...', end='\n\n')
 
-# we have to set first field to NULL, so as to Python treat it as autoincrementable
+# we have to set first field to NULL, so as to Python treat it as self-increasing
 cursor.execute('''INSERT INTO PRODUCTS VALUES
 	(NULL, "PR01", "Adidas blue t-shirt", 500, "Sport clot.")''')
 
@@ -84,7 +84,7 @@ show_list(cursor)
 
 print('\t\tHandling query results...')
 
-print('\tCommiting changes...')
+print('\tCommitting changes...')
 connection.commit()
 
 print('Closing connection...')

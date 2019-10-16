@@ -25,7 +25,7 @@
 #		· close() - close an opened file (has no effects if the file is already closed)
 #		· seek(pointer_index) - set file pointer to specified index (starting from 0)
 #
-filename = '14_text_file.txt'
+filename = '15_text_file.txt'
 print("----------------------- External files handling ------------------------")
 
 def remove_last_char(text): # function to map to each element

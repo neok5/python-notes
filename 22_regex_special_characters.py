@@ -1,5 +1,5 @@
 #
-# REGULAR EXPRESSIONS (II)
+# REGULAR EXPRESSIONS SPECIAL CHARACTERS
 #
 #	- A range is a special case of 'character set' where you can specify a range of
 #	 characters (letters) or a range of digits (numbers). Even you can use an anchor

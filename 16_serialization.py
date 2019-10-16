@@ -16,7 +16,7 @@
 #			user-defined object types, in order to be able to handle and reconstruct them
 #
 from pickle import dump, load
-filename_list = '15_namelist_bfile'
+filename_list = '16_namelist_bfile'
 
 print("----------------------- Scientific name list (dump) ------------------------")
 
@@ -45,7 +45,7 @@ print()
 
 
 from modules.vehicles import Vehicle
-filename_object = '15_carobjects_bfile.pckl'  # we can open .pckl files with Sublime Text for a binary perspective
+filename_object = '16_carobjects_bfile.pckl'  # we can open .pckl files with Sublime Text for a binary perspective
 
 print("----------------------- Vehicle object (dump) ------------------------")
 

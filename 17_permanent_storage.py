@@ -21,7 +21,7 @@ class Person:
 class PeopleList:
 
 	people = []
-	filename = '16_peoplelist_permstorage'
+	filename = '17_peoplelist_permstorage'
 
 	def __init__(self):
 		people_file = open(self.filename, 'ab+') # append (end of file), read-write and binary

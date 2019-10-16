@@ -1,5 +1,5 @@
 #
-# REGULAR EXPRESSIONS (I)
+# REGULAR EXPRESSIONS METHODS
 #
 #	- They are character sequences that conforms a search pattern, useful in
 #	 text processing tasks, a very common matter in any application.
@@ -54,15 +54,15 @@ word = 'ipsum do'
 other_word = 'egfkjsbds'
 part = 'or'
 
-def exists_word(word, text):
-	return 'does' if re.search(word, text) is not None else 'doesn\'t'
+def exists_word(_word, _text):
+	return 'does' if re.search(_word, _text) is not None else 'doesn\'t'
 
 print(f'''\tText: \'{text}\'
 	Word: \'{word}\'
 	Other word: \'{other_word}\'
 	Part: \'{part}\'\n''')
 
-search_result =  exists_word(word, text)
+search_result = exists_word(word, text)
 start = re.search(word, text).start()
 end = re.search(word, text).end()
 print(f'\t· The word {search_result} exist in the text and goes from {start} to {end}')
@@ -79,21 +79,21 @@ urls = ['https://www.google.es', 'http://as.com', 'https://www.xataka.com']
 def show_filtered_urls(_list, pattern):
 	for _elem in _list:
 		if re.findall(pattern, _elem):
-			print(f' [{_elem}]', end = '')
+			print(f' [{_elem}]', end='')
 	print()
 
-print(f'\t->\tURLs list:', end = '')
-show_filtered_urls(urls, '') # with an empty pattern, it return the whole list
+print(f'\t->\tURLs list:', end='')
+show_filtered_urls(urls, '')  # with an empty pattern, it return the whole list
 
-print(f'\n\t->\tHTTP secure domains:', end = '')
+print(f'\n\t->\tHTTP secure domains:', end='')
 show_filtered_urls(urls, '^https://')
 
-print(f'\n\t->\t\'.es\' domains:', end = '')
+print(f'\n\t->\t\'.es\' domains:', end='')
 show_filtered_urls(urls, '.es$')
 
-print(f"\n\t->\tUrls containing 'x' letter:", end = '')
+print(f"\n\t->\tUrls containing 'x' letter:", end='')
 show_filtered_urls(urls, '[x]')
 
-print(f"\n\t->\t'g' or 'o' letter appareances in first url:", end = '')
+print(f"\n\t->\t'g' or 'o' letter appearances in first url:", end='')
 show_filtered_urls(urls[0], '[go]')
 print()

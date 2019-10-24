@@ -12,7 +12,7 @@
 #
 #	- more efficient than regular functions;
 #	  specially useful with infinite values
-
+#
 print("----------------------- Pair numbers generator -----------------------")
 
 def generate_pair_numbers(limit):
@@ -34,34 +34,33 @@ def generate_pair_numbers_generator(limit):
 
 pair_numbers_iterable = generate_pair_numbers_generator(10)
 for pair_number in pair_numbers_iterable:
-	print(pair_number, end = " ")
+	print(pair_number, end=" ")
 print('\n')
 
 print("----------------------- Fibonacci numbers generator -----------------------")
 
-import math # used to get max number value
-def generate_fibonacci_numbers_generator_with_next(limit):
+def generate_fibonacci_numbers_generator_with_next():
 	first, second = 0, 1
 	while True:
 		yield first
 		first, second = second, first + second
 
-fibo_numbers_iterable_next = generate_fibonacci_numbers_generator_with_next(math.inf)
+fibo_numbers_iterable_next = generate_fibonacci_numbers_generator_with_next()
 print("First ten Fibonacci numbers (starting in 0):")
-for i in range(10): # print ten first fibonumbers of an 'infinite' sequence
-	print(next(fibo_numbers_iterable_next), end = ", " if i != 9 else "")
+for i in range(10):  # print ten first fibonacci numbers of an 'infinite' sequence
+	print(next(fibo_numbers_iterable_next), end=", " if i != 9 else "")
 print('\n')
 
-print("----------------------- Cities generator -----------------------")
+print("----------------------- Cities generator -----------------------", end='')
 
 def return_cities(*cities):
-#	for city in cities:
-#		for letter in city:
-#			yield letter
-	for city in cities: # the same as 3 lines above, but simplified
-		yield from city # return all letters as a continuous stream/flow
+	#	for city in cities:
+	#		for letter in city:
+	#			yield letter
+	for city in cities:  # the same as 3 lines above, but simplified
+		yield from city  # return all letters as a continuous stream/flow
 
 returned_city_letters = return_cities("Tokyo", "Amsterdam", "Sydney", "Los Angeles")
-for city_letter in returned_city_letters: # 65 to 91 is Unicode for A to Z
-	print(city_letter, end = "\n" if ord(city_letter) in list(range(65, 91)) else "")
+for city_letter in returned_city_letters:  # 65 to 91 is Unicode for A to Z
+	print(('\n' if ord(city_letter) in list(range(65, 91)) else '') + city_letter, end='')
 print()

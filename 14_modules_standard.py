@@ -29,6 +29,7 @@
 #           of the data 'type' passed as argument at the creation. The 'type' is used just for default values.
 #       - class OrderedDict. It's a dictionary where keys maintain the order in which they were inserted,
 #           which means if you change the value of a key later, it will not change the position of the key.
+#           In Python 3.6+, standard 'dicts' are natural sorted (ordered by insertion) by default.
 #       - namedtuple(). It's a simple tuple that has names for its values, as if it were a dict. A quick and
 #           easy way to model basic tiny temporary classes with less code.
 #

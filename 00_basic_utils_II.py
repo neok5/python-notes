@@ -1,100 +1,166 @@
-import math as ma
-
-# function print() with param keywords
-#	'sep' - printed elements separator; default value: ' '
-# 	'end' - indicates the 'str' printed at last; default value: '\n'
-#		useful when you want to avoid the line feed ('\n') of print()
-#	'file' - object with write(string) method; default value: 'sys.stdout'
-#		it could be an opened file to write in it
-print("----------------------- print() with leywords -----------------------\n")
-print("word one", "word two", "word three", sep = '')
-print("word one", "word two", "word three", sep = ' | ')
-print("word one", "word two", "word three", sep = '\t')
-print("word1", end = '') # removes the line feed
-print("\n") # used with '\n' to compensate line just above
-
-# WITH statement | used in exception handling, specially with open resources
-#	(same as 'try-with-resources' from Java 8)
+# DEL keyword | syntax: 'del obj_name'
 #
-# 	Syntax:
-#		with function_call() as function_call_result_alias:
-#			sentence_to_handle_resource_that_may_raise_exception
+#	It could be used with variables, objects, lists, items within lists, dicts, etc.
+#	Below there are several examples
 #
-# Without 'with' -forgive the repetition-, we had to write something like:
-#	opened_file = open('file_path', 'r')
-#	try:
-#		opened_file.read()
-#	except CaugthException as e:
-#		error_handling # here 'e' can be used as the exception variable
-#	finally:
-#		opened_file.close()
-print("----------------------- 'with' and 'pass' -----------------------\n")
-try:
-	with open('file_path', 'r') as opened_file:
-		data = opened_file.read() # it closes the resource itself
-except FileNotFoundError as e:
-	print(f"Exception raised:\n\t{e}")
+import math
+import random as rnd
 
-# PASS statement | is a null operation; when is executed, nothing happens
-# useful as placeholder when a statement is required syntactically
-class ClassNotImplementedYet:
-	pass
+print("----------------------- 'del' keyword -----------------------")
 
-	def function_not_implemented_yet(self):
-		pass
+class ClassToRemove:
+    pass
+
+print(f"Object type -> {type(ClassToRemove)}")
+print('Deleting user-defined object.......................')
+del ClassToRemove
+# print(type(ClassToRemove)) # throws a 'NameError' (name 'ClassToRemove' is not defined)
 print()
 
-# UNDERSCORES | they have 5 principal uses or patterns:
-#
-#	* single leading underscore ['_var']
-#		- by convention, indicates the element isn't intended to be externally accessed
-#		- do impact how names get imported from modules:
-#			+ using wildcard imports (from module import *), Python doesn't import them
-#			+ using normal imports (import module), Python does import them
-#
-#	* single trailing underscore ['var_']
-#		- by convention, useful to avoid name conflicts with Python keywords
-#
-#	* double leading underscore (and at most 1 trailing) ['__var']
-#		- in inheritance, useful to avoid accidental overloading with superclasses
-#		- triggers 'name mangling': inside class 'FooBar', '__boo' becomes '_FooBar__boo')
-#
-#	* double leading and trailing underscore ['__var__']
-#		- 'name mangling' is not applied, as it has double trailing underscore (>= 2)
-#		- are reserved for special use in the language ('magic methods'); better to
-#		- stay away from using names such these to avoid collisions with future changes
-#
-#	* single underscore ['_']
-#		- sometimes used as name to indicate that a variable is temporary or insignificant
-#		- useful in tuple unpacking (destructuring) to ignore certain fields
-#
-print("----------------------- underscores -----------------------\n")
-
-class Test:
-	def __init__(self):
-		self.foo = 'foo'
-		self._bar = '_bar'
-		self.def_ = 'def_' # use 'self.def' raises a SyntaxError, as 'def' is a keyword
-		self.__dun = '__dun' # name mangling converts '__dun' to '_Test__dun'
-
-	def count_to_five(self):
-		for _ in range(1,6): # '_' use as temporary varname
-			print(_, end = "\n" if _ == 5 else " ")
-
-test = Test()
-print(test.foo)
-print(test._bar)
-print(test.def_)
-# print(test.__dun) # this line raises a AttributeError ('Test' has no attribute '__dun')
-# print(test._Test__dun)
-test.count_to_five()
+my_var = 23
+my_tuple = ('Goku', 9000)
+my_list = ["a", "b", "c"]
+my_dict = {'name': 'Alberto', 'age': 27}
+print(f"""var = {my_var}
+tuple = {my_tuple}
+list = {my_list}
+dict = {my_dict}""")
+print('Deleting vars, tuples, lists and dicts.......................')
+del my_var
+del my_tuple  # but you can't remove a tuple element; tuples are immutable
+del my_list
+del my_dict
+# print(my_var); print(my_tuple); print(my_list); print(my_dict) # throws a 'NameError'
 print()
 
-# shorter FOR; syntax: we can apply 'map' and 'filter' to a list with a shorten FOR
-# 	'[function(ele) for ele in elements if condition(ele)]'
-# 	'[map_function shorten_FOR if filter_function]'
-print("--------------- shorter FOR [map(), filter() combination] ---------------\n")
-numbers = [0, 1, 2, 4, 9, 16, 25, 36, 50] # 9 numbers, 7 integer sqrts (not '2' and '50')
-square_roots = [ ma.sqrt(n) for n in numbers if ma.modf(ma.sqrt(n))[0] == 0]
-print(square_roots) # prints only integer square roots (decimal part = 0)
+_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(f'Original list -> {_list}')
+del _list[4]  # remove fifth element
+print(f'After remove fifth element -> {_list}')
+del _list[0:2]  # remove first two items
+print(f'After remove first two items -> {_list}')
+del _list[:]  # remove all elements (empty list)
+print(f'After remove remain elements -> {_list}')
+del _list  # remove the list itself, the variable
+# print(_list) # throws a 'NameError', as expected
 print()
+
+_dict = {'key_one': 'value_one', 'key_two': 'value_two', 'key_three': 'value_three'}
+print(f'Original dict -> {_dict}')
+del _dict['key_two']  # remove second dictionary entry (key-value par)
+print(f'After remove second entry -> {_dict}')
+print()
+
+# TRUNCATE numbers (floats) - using math.trunc(num) function, that returns integer part of 'num'
+print("----------------------- truncate numbers -----------------------")
+
+number = 23.3427532
+print(f'Original value {number}')
+print(f'Integer part: {math.trunc(number)}')  # truncates without rounding the number, just cutting it off
+
+n_decimals = 3
+stepper = 10.0 ** n_decimals
+print(f'Truncated (3-decimal) value {math.trunc(stepper * number) / stepper}')
+print()
+
+# using 'random' module - it allows to generate random numbers
+print("----------------------- randomness -----------------------")
+print(f'Float random number: {rnd.random()}')
+print(f'Float random number in range [2, 7): {rnd.uniform(2, 7)}')
+print(f'Integer random in range [70, 100): {rnd.randrange(70, 100)}')  # start is optional (defaults 0)
+print(f'Integer pair random in range [0, 11): {rnd.randrange(0, 11, 2)}')  # third argument is the 'step'
+
+num_list = [1, 2, 3, 4, 5]
+word = 'spectacular'
+print(f'\nNumbers list: {num_list} | Random number choice: \'{rnd.choice(num_list)}\'')
+print(f'Word: {word} | Random letter choice: \'{rnd.choice(word)}\'')
+rnd.shuffle(num_list)
+print(f'Unordered number list: {num_list}')
+print(f'Single sample from numbers: {rnd.sample(num_list, 1)}')
+print(f'Single sample from word: {rnd.sample(word, 1)}')
+print(f'Three letters from word: {rnd.sample(word, 3)}')
+print()
+
+# DOCSTRINGS - documentation of modules, classes, functions, etc.
+# ANNOTATIONS - they can be used to help to identify expected values as parameters of a function
+class Dummy:
+    """Dummy documentation about Dummy class"""
+    def __init__(self, param_1, param_2):
+        self.param_1 = param_1
+        self.param_2 = param_2
+
+    def __str__(self):
+        return f'{self.param_1}-----{self.param_2}'
+
+def example_function(num_1: int, chars: str, days: list) -> Dummy:  # we specify param types and return type
+    return Dummy(f'{str(num_1)}{chars}', days)
+
+
+print(Dummy.__doc__)
+print(example_function(23, '_test', ['monday', 'friday', 'thursday']))
+
+# CONTEXT MANAGERS - they allow to build code with pre and post conditions, executing actions before and after
+#					 the actual (main) code runs. They consist of two magic methods: __enter__ and __exit__
+def start_db():
+    pass  # code to start the db
+
+def stop_db():
+    pass  # code to stop the db
+
+class DBHandler:
+    def __enter__(self):
+        """Executed before db_backup static method"""
+        start_db()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """Executed after db_backup static method"""
+        stop_db()
+
+    @staticmethod
+    def db_backup():
+        """Main code in the class"""
+        pass  # code to make a db backup
+
+with DBHandler():
+    DBHandler.db_backup()
+
+# SUBPROCESS MODULE
+#
+#	- It allows to spawn new processes, connect them to their input/output/error pipes, and obtain their
+#       return codes. The recommended approach to invoking subprocess is to use the run() function for
+#       all use cases it can handle. For advanced use cases, Popen interface can be used.
+#
+#   - Function subprocesss.run. Run the command described by args, wait for it to complete and then
+#       return a CompletedProcess instance, representing a process that has finished, which contains:
+#           · 'args', the args used to launch the process
+#           · 'returncode', the exit status of the child process, where 0 indicates success, and a negative
+#                           value indicates a signal of termination (POSIX only)
+#           · 'stdout' | 'stderr', from the child process. None if not captured, a byte sequence by
+#                                  default, or a string if run() was called with 'universal_newlines=True'
+#
+#   - Function subprocess.Popen. Execute a child program in a new process. It's the underlying layer of
+#       run() function, so this last is just a wrapper over Popen, in order to simplify its use.
+#
+
+#
+# MONKEY PATCH/PATCHING - It's simply the dynamic replacement of attributes at runtime
+#
+
+#
+# SET operations: intersection, union, symmetric difference, difference, superset...
+#
+spam = set('spam')
+eggs = set('eggs')
+
+print()
+print(spam, eggs, sep='\n', end='\n\n')
+
+print(f'spam & eggs: {spam & eggs}')  # AND - intersection (all letters in both words)
+print(f'spam | eggs: {spam | eggs}')  # OR - union (all letters in both words)
+print(f'spam ^ eggs: {spam ^ eggs}')  # XOR - symmetric difference (all letters in both words, except common ones)
+print(f'spam - eggs: {spam - eggs}')  # NOT IN - difference (all letters in first word, not in the second one)
+print(f'eggs - spam: {eggs - spam}')
+print(f'spam > eggs: {spam > eggs}')  # ALL IN - superset(true if first word contains,
+print(f'eggs > spam: {eggs > spam}')  # at least, all letters of second word; false otherwise)
+print(f'perfection > perfect: {set("perfection") > set("perfect")}')

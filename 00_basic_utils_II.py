@@ -164,3 +164,13 @@ print(f'eggs - spam: {eggs - spam}')
 print(f'spam > eggs: {spam > eggs}')  # ALL IN - superset(true if first word contains,
 print(f'eggs > spam: {eggs > spam}')  # at least, all letters of second word; false otherwise)
 print(f'perfection > perfect: {set("perfection") > set("perfect")}')
+
+#
+#   USE of 'if __name__ == "__main__"' in a MODULE
+#       When Python interpreter reads a source file it does two things:
+#           - It sets some special variables, such '__name__', and then
+#           - executes all the code found in the file, sentence by sentence
+#       A module (python file) can be used in two ways:
+#           - It gets executed directly. It's the main program: __name__ == "__main__"
+#           - It gets imported w/ or wout/ an alias. It's NOT the main program: __name__ == "module_name_used_to_import"
+#

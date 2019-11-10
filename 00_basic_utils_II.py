@@ -83,6 +83,7 @@ print()
 
 # DOCSTRINGS - documentation of modules, classes, functions, etc.
 # ANNOTATIONS - they can be used to help to identify expected values as parameters of a function
+print("----------------------- docstrings and annotations -----------------------")
 class Dummy:
     """Dummy documentation about Dummy class"""
     def __init__(self, param_1, param_2):
@@ -125,7 +126,7 @@ class DBHandler:
 with DBHandler():
     DBHandler.db_backup()
 
-# SUBPROCESS MODULE
+# MODULE 'SUBPROCESS'
 #
 #	- It allows to spawn new processes, connect them to their input/output/error pipes, and obtain their
 #       return codes. The recommended approach to invoking subprocess is to use the run() function for
@@ -153,7 +154,7 @@ with DBHandler():
 spam = set('spam')
 eggs = set('eggs')
 
-print()
+print("\n----------------------- set operations (with spam and eggs) -----------------------")
 print(spam, eggs, sep='\n', end='\n\n')
 
 print(f'spam & eggs: {spam & eggs}')  # AND - intersection (all letters in both words)

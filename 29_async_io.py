@@ -80,6 +80,7 @@ print('\n\tSynchronous counter...')
 init_ns = getnstimestamp()
 sync_counter()
 diff_ns = getnstimestamp() - init_ns
+first_mark = diff_ns
 print(f'\tThe process last {diff_ns / 1000000000:.7f} seconds.')
 
 async def async_half_second_awaiter(i):
@@ -99,4 +100,6 @@ print('\n\tAsynchronous counter...')
 init_ns = getnstimestamp()
 run(async_counter())  # the output could be unordered, but in a deterministic way (not random, always the same order)
 diff_ns = getnstimestamp() - init_ns
+second_mark = diff_ns
 print(f'\n\tThe process last {diff_ns / 1000000000:.7f} seconds.')
+print(f'\n\tThe second process is {first_mark/second_mark:.2f} times faster than first one.')

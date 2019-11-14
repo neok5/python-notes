@@ -13,7 +13,7 @@
 #					super().method_in_superclass() # call superclass method
 #					{method body}
 #
-#		- As in majority of languagues, this builds a inheritance operative chain, which
+#		- As in majority of languages, this builds a inheritance operative chain, which
 #		  starts from bottom to top, looking for the first implementation of the method
 #
 #	Multiple inheritance:
@@ -68,9 +68,10 @@ print("----------------------- Vans -----------------------")
 van = Van("VW", "1959")
 van.status()
 print()
-print(van.load(True), end = "\n\n")
+print(van.load(True), end="\n\n")
 van.turn_on()
-van.status(); print()
+van.status()
+print()
 
 print("----------------------- Electric bicycles -----------------------")
 
@@ -81,6 +82,6 @@ print()
 
 print("----------------------- Vehicle polymorphism -----------------------")
 
-vehicle_movement(Motorbike()) # method's implementation called depends on the object type
+vehicle_movement(Motorbike())  # method's implementation called depends on the object type
 vehicle_movement(Cab())
 vehicle_movement(Truck())

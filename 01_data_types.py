@@ -1,4 +1,5 @@
-# PYTHON DATATYPES
+#
+# PYTHON DATA TYPES
 #
 # 1. Numbers
 # 		A. int
@@ -8,11 +9,11 @@
 #				imaginary_part default value: 0
 #
 # 2. Strings (str)
-#	- a dobule """ can be used to span a str into several lines
+#	- a double """ can be used to span a str into several lines
 #	- they can be accessed as arrays/lists ('[' index ']' notation)
 #	- three ways of formatting a str:
 #		+ print("I printed %s pages in printer %s" % (x, printer))
-#		+ print("I printed {0} pages in printer {1}".format(x, printer)); alternativly:
+#		+ print("I printed {0} pages in printer {1}".format(x, printer)); alternatively:
 #		  print("I  printed {x} pages in printer {printer}".format(x=7, printer="Dell"))
 #		+ print(f"I just printed {x} pages to the printer {printer}")
 #		  	# with 'x' and 'printer' as external vars
@@ -31,17 +32,17 @@
 #       to return a third set with elements in s1 and s2, without modifying them
 #   - all set logic is available using set functions: s1.isdisjoint(s2), s1.issubset(s2), s1.issuperset(s2),
 #       s1.difference(s2) [DON'T modify s1 NOR s2] / s1.difference_update(s2) [DO modify s1, but DON'T s2],
-#       s1.intersection(s2) and s1.symetric_differece(s2) [the opposite of intersection]...
+#       s1.intersection(s2) and s1.symmetric_difference(s2) [the opposite of intersection]...
 var = 1
 print(type(var))
 
 var = 1.5
 print(type(var))
 
-var = complex(5) # same as 'var = complex(5, 0)'
+var = complex(5)  # same as 'var = complex(5, 0)'
 print(type(var))
 
-var = "prueba" # also with single quotes ' '
+var = "prueba"  # also with single quotes ' '
 print(type(var))
 
 var = []
@@ -60,5 +61,5 @@ var = True
 print(type(var))
 
 # var = {} builds a 'dict', not a 'set'; a 'set' has to have one value at least
-var = { None } # empty 'set'; None is a python keyword that indicates value absence
+var = {None}  # empty 'set'; None is a python keyword that indicates value absence
 print(type(var))

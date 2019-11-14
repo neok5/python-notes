@@ -61,23 +61,26 @@
 #		  	  specific working directory path, and you'll be able to import it easily
 #
 #		- You can even uninstall Python packages you already have installed.
-#		  As easy as open a console and execute from anywhere 'pip unistall package_name'
+#		  As easy as open a console and execute from anywhere 'pip uninstall package_name'
 #
+import modules.math_functions
+import modules.math_functions as math
+from modules.math_functions import multiply
+from modules.math_functions import sum as my_sum, subtract as rest
+from package.general_calculus import divide, subtract
+from package.subpackage.specific_calculus import round_num, sqrt_num
+
 print("----------------------- Math functions ------------------------")
 
-import modules.math_functions
 modules.math_functions.subtract(5, 3)
 print()
 
-import modules.math_functions as math
 math.sum(2, 3)
 print()
 
-from modules.math_functions import multiply
 multiply(5, 3)
 print()
 
-from modules.math_functions import sum as my_sum, subtract as rest
 my_sum(15, 8)
 rest(2, 2)
 print()
@@ -86,12 +89,10 @@ print("----------------------- General calculus ------------------------")
 
 # these two last imports will work even if we remove 'package' folder, or any of
 # its internal folders or files, because we have the dist-package installed
-from package.general_calculus import divide, subtract
 divide(10, 2)
 subtract(5, 2)
 print()
 
-from package.subpackage.specific_calculus import round_num, sqrt_num
 round_num(7.2)
 sqrt_num(23)
 print()

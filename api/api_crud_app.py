@@ -1,10 +1,10 @@
 # ----------------------- # API # ----------------------- #
 import sqlite3 as db
-import os # to delete the db each time
+import os  # to delete the db each time
 
 db_name = '19_crud_app_users_db'
 if os.path.isfile(db_name):
-	os.remove(db_name) # this allows to start from scratch each time
+	os.remove(db_name)  # this allows to start from scratch each time
 # global 'conn' and 'curs' access
 conn = db.connect(db_name)
 curs = conn.cursor()
@@ -20,7 +20,7 @@ def connect_db():
 			REMARKS VARCHAR(200))''')
 
 		conn.commit()
-	except:
+	except ValueError:
 		pass
 
 def create_user(user):
@@ -57,12 +57,12 @@ def exit_app():
 
 def count_users():
 	curs.execute('SELECT COUNT(*) FROM USER_DATA')
-	return curs.fetchone()[0] # return an element instead of a list
+	return curs.fetchone()[0]  # return an element instead of a list
 
 def max_id():
 	curs.execute('SELECT MAX(ID) FROM USER_DATA')
-	max_id = curs.fetchone()[0]
-	return max_id if max_id is not None else 0
+	max_id_ = curs.fetchone()[0]
+	return max_id_ if max_id_ is not None else 0
 
 def show_db():
 	print(f'\tShowing database ({count_users()} users):')

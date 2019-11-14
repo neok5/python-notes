@@ -84,9 +84,11 @@ def eval_age(age):
 	if age < 0:
 		raise ValueError(f"\tException: age provided ({age}) is wrong; can't be negative")
 	elif age < 18:
-		print("You are underage"); return False
+		print("You are underage")
+		return False
 	else:
-		print("You are an adult"); return True
+		print("You are an adult")
+		return True
 
 try:
 	# two sentences here can raise a ValueError:

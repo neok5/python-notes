@@ -55,12 +55,12 @@
 #
 import re
 
-names = ['Albert', 'Nikola', 'Marie', 'Isaac', 'Leonardo', ''] # empty name at the end
+names = ['Albert', 'Nikola', 'Marie', 'Isaac', 'Leonardo', '']  # empty name at the end
 
 def show_parsed_names(pattern):
 	for name in names:
 		if re.search(pattern, name, re.I):
-			print(f'\n\t\t· {name}', end = '')
+			print(f'\n\t\t· {name}', end='')
 	print('\n')
 
 print(f'\tNames:')

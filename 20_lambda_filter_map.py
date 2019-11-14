@@ -20,8 +20,9 @@ def triangle_area(base, height):
 print(f'\t[NORMAL] The area of a triangle (3 base, 5 height) is {triangle_area(3, 5)}')
 print()
 
-triangle_area_lambda = lambda b, h: b * h / 2  # do not assign a lambda expression, use a def
-print(f'\t[LAMBDA] The area of a triangle (3 base, 5 height) is {triangle_area_lambda(3, 5)}')
+#triangle_area_lambda = lambda b, h: b * h / 2  # do not assign a lambda expression, use a def
+#print(f'\t[LAMBDA] The area of a triangle (3 base, 5 height) is {triangle_area_lambda(3, 5)}')
+print(f'\t[LAMBDA] The area of a triangle (3 base, 5 height) is {(lambda b, h: b * h / 2)(3, 5)}')
 print()
 
 #
@@ -87,7 +88,7 @@ print()
 print("----------------------- Mapping employees salaries ------------------------\n")
 
 def increment_by_10_percent(employee):
-    employee.salary = employee.salary * 1.1 // 1  # to shorten the precission
+    employee.salary = employee.salary * 1.1 // 1  # to shorten the precision
     return employee
 
 print(f'\tOriginal list of employees:\n')

@@ -25,10 +25,10 @@ print("--- Age verification ---")
 user_age = int(input("Insert your age: "))
 
 
-def verification(age):
-    if age < 18:
+def verification(age_):
+    if age_ < 18:
         print("Denied")
-    elif age > 100:
+    elif age_ > 100:
         print("Incorrect")
     else:
         print("Allowed")
@@ -38,14 +38,14 @@ verification(user_age)
 print()
 
 #
-# sentence IF concatening aritmetic comparators
+# sentence IF concatenating arithmetic comparators
 #
 print("--- Age verification simplified ---")
 age = int(input("Insert an age: "))
 
-# it evaluates the condition from left to rigth, pair by pair
+# it evaluates the condition from left to right, pair by pair
 # same as: (age > 0) AND (age < 100) # params just for legibility
-if (0 < age < 100):
+if 0 < age < 100:
     print("Valid age")
 else:  # instructions outside a function; LOL
     print("Incorrect age")
@@ -68,13 +68,13 @@ else:
 print()
 
 #
-# sentence IF concatening generic conditions (and, or)
+# sentence IF concatenating generic conditions (and, or)
 #
 print("--- Study grant validation ---")
 
 distance = int(input("Insert the distance in kms: "))
 siblings = int(input("Insert the number of brothers or sisters: "))
-family_salary = int(input("Insert the anual salary of your family unit: "))
+family_salary = int(input("Insert the annual salary of your family unit: "))
 
 if distance > 40 and siblings > 2 or family_salary <= 20000:
     print("You have been granted your study grant")
@@ -83,7 +83,7 @@ else:
 print()
 
 #
-# sentence IF concatening general conditions (w/ and, or, not)
+# sentence IF concatenating general conditions (w/ and, or, not)
 #
 print('--- Optional subjects ---')
 print('Graphic computing | Software testing | Usability and accessibility')

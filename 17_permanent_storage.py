@@ -24,11 +24,11 @@ class PeopleList:
 	filename = '17_peoplelist_permstorage'
 
 	def __init__(self):
-		people_file = open(self.filename, 'ab+') # append (end of file), read-write and binary
-		people_file.seek(0) # set the pointer at start to read the file
+		people_file = open(self.filename, 'ab+')  # append (end of file), read-write and binary
+		people_file.seek(0)  # set the pointer at start to read the file
 
 		try:
-			self.people = load(people_file) # read and loads the file
+			self.people = load(people_file)  # read and loads the file
 			print(f'{len(self.people)} people were loaded from external file')
 		except EOFError:
 			# if file is empty it will raise a EOFError
@@ -48,14 +48,14 @@ class PeopleList:
 			print(f'\t{person}')
 
 	def __save_people_perm_storage(self):
-		people_file = open(self.filename, 'wb') # write binary mode; truncates files echa time
+		people_file = open(self.filename, 'wb')  # write binary mode; truncates files each time
 		dump(self.people, people_file)
 		people_file.close()
 		del people_file
 
 print("----------------------- People list ------------------------")
 
-my_people = PeopleList() # comment below line to avoid constantly write on the file
+my_people = PeopleList()  # comment below line to avoid constantly write on the file
 my_people.add_people([Person('Albert', 'Male', 27), Person('Marie', 'Female', 32)])
 print()
 my_people.show_people()

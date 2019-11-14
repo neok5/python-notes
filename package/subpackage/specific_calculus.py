@@ -1,4 +1,4 @@
-from math import sqrt # to use math.sqrt() function
+from math import sqrt  # to use math.sqrt() function
 
 def power(base, exponent):
 	print(f"Power result is: {base ** exponent}")

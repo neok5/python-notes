@@ -62,3 +62,7 @@ print()
 
 for key, value in dict_with_complex_types.items():
     print(f'{key} -> {value}')
+print()
+
+for key in dict_with_complex_types:
+    print(f'{key} -> {dict_with_complex_types[key]}')
